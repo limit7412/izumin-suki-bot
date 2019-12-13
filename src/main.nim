@@ -4,10 +4,13 @@ import usecase
 
 when isMainModule:
   "command".hander do (event: JsonNode) -> JsonNode:
-  # let res = event["body"]
     let uc = IzumiUsecase()
-    let res = uc.run()
-    return %* {
-      "msg": res
-      }
+    try:
+      let res = uc.run()
+      return %* {
+        "msg": res
+        }
+    except:
+      uc.err(getCurrentException())
+      raise
 
