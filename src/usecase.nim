@@ -6,4 +6,6 @@ type
 
 proc run*(self: IzumiUsecase): string =
   let repo = SlackRepository(url: os.getEnv("SUCCESS_WEBHOOK_URL").string)
-  return "ok"
+  let body = Post(text: "test")
+
+  return repo.post(@[body])

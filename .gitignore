@@ -4,3 +4,7 @@ env.yml
 bootstrap
 
 .serverless/
+
+src/test
+
+src/test.nim

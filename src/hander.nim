@@ -20,6 +20,6 @@ proc hander*(name: string, callback: proc(
       let result = callback(event.body.parseJson)
       let _ = resClient.postContent(returnUrl & "/response", body = $result)
     except:
-      let _ = resClient.postContent(returnUrl & "/error", body = ${
-        "mag": "Internal Lambda Error"
-      })
+      let _ = resClient.postContent(returnUrl & "/error", body = $ %*{
+          "msg": "Internal Lambda Error"
+        })
