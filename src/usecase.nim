@@ -1,12 +1,20 @@
 import os
+import random
 import repository
 
 type
   IzumiUsecase* = ref object
 
+proc talk(self: IzumiUsecase): string =
+  let list = @[
+      "hoge",
+      "fuga",
+    ]
+  return list[list.len.rand - 1]
+
 proc run*(self: IzumiUsecase): string =
   let repo = SlackRepository(url: os.getEnv("SUCCESS_WEBHOOK_URL").string)
-  let body = Post(text: "test")
+  let body = Post(text: self.talk)
 
   return repo.post(@[body])
 
