@@ -8,7 +8,7 @@ when isMainModule:
     try:
       let res = uc.run()
       return %* {
-        "msg": res
+        "text": res
         }
     except:
       uc.err(getCurrentException())
