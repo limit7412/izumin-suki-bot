@@ -8,7 +8,10 @@ type
 proc talk(self: IzumiUsecase): string =
   let list = @[
       "もう…恥ずかしいってば",
-      "",
+      "ふふっ…ありがとう",
+      "どうしたの？",
+      "私は大丈夫だよ。心配してくれてるんだよね。ありがとう",
+      "背中を押してくれるのは、スポットライトだけじゃないんだ。知ってる？",
     ]
   return list[list.len.rand - 1]
 
