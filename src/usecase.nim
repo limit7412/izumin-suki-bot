@@ -13,7 +13,7 @@ proc talk(self: IzumiUsecase): string =
       "私は大丈夫だよ。心配してくれてるんだよね。ありがとう",
       "背中を押してくれるのは、スポットライトだけじゃないんだ。知ってる？",
     ]
-  return list[list.len.rand - 1]
+  return list[(list.len - 1).rand]
 
 proc run*(self: IzumiUsecase): string =
   let repo = SlackRepository(url: os.getEnv("SUCCESS_WEBHOOK_URL").string)
