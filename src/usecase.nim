@@ -16,10 +16,7 @@ proc talk(self: IzumiUsecase): string =
   return list[(list.len - 1).rand]
 
 proc run*(self: IzumiUsecase): string =
-  let repo = SlackRepository(url: os.getEnv("SUCCESS_WEBHOOK_URL").string)
-  let body = Post(text: self.talk)
-
-  return repo.post(@[body])
+  return self.talk
 
 proc err*(self: IzumiUsecase, err: ref Exception) =
   let repo = SlackRepository(url: os.getEnv("ALERT_WEBHOOK_URL").string)
