@@ -29,4 +29,4 @@ proc err*(self: IzumiUsecase, err: ref Exception) =
       footer: "slack-izumi-suki-bot",
     )
 
-  let _ = repo.post(@[body])
+  discard repo.post(@[body])
