@@ -7,9 +7,12 @@ when isMainModule:
     let uc = IzumiUsecase()
     try:
       let res = uc.run()
-      return %* {
-        "text": res
-        }
+      return %*{
+        "statusCode": 200,
+        "body": $ %*{
+          "text": res,
+        },
+      }
     except:
       uc.err(getCurrentException())
       raise

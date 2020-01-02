@@ -21,5 +21,8 @@ proc hander*(name: string, callback: proc(
       discard resClient.postContent(returnUrl & "/response", body = $result)
     except:
       discard resClient.postContent(returnUrl & "/error", body = $ %*{
+        "statusCode": 500,
+        "body": $ %*{
           "msg": "Internal Lambda Error"
-        })
+        },
+      })
